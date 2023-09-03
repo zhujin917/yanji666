@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html><head><title>RGB颜色合成器</title></head>
+<body style>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,viewport-fit=cover">
+<script src="/assets/Easier.js"></script>
+<script src="/assets/ie.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script>repeat('myFunction()')</script>
+<style>
+input{width:70%}
+span{display:inline-block;width:30%;border-radius:12.5px;text-align:left}
+code{color:white}
+.about{position:fixed;bottom:2px;left:2px;background:white;border:1px solid black;padding:3px;border-radius:3px}
+</style>
+<center>
+<span style="background:red"><input type="range" id="R" max="255" min="0">
+<code id="red"></code></span>
+<span style="background:green"><input type="range" id="G" max="255" min="0">
+<code id="green"></code></span>
+<span style="background:blue"><input type="range" id="B" max="255" min="0">
+<code id="blue"></code></span>
+</center>
+<div class="about">©YSH/Powered By Jquery and Easier.js</div>
+<script>
+function myFunction() {
+var r = document.getElementById("R").value;
+var g = document.getElementById("G").value;
+var b = document.getElementById("B").value;
+$("body").attr("style","background:rgb(" + r + "," +  g + ","  + b + ")");
+document.getElementById('red').innerHTML=r;
+document.getElementById('green').innerHTML=g;
+document.getElementById('blue').innerHTML=b;
+}
+
+</script>
+
+</body>
+</html>

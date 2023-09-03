@@ -1,0 +1,8 @@
+function zuoti(){
+$('div[data-check^=A]').click();
+setTimeout(function(){a()}, 1000);
+setTimeout(function(){b()}, 2000);
+setTimeout(function(){zuoti()}, 3000);
+function a(){$('.success').click();}
+function b(){$('.next_question').click();}
+}zuoti()//普法网做题作弊器 ©YSH

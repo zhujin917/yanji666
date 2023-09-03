@@ -1,0 +1,85 @@
+<!doctype html>
+<html><head><script src="https://cdn.jsdelivr.net/npm/jquery"></script><script src="/assets/ie.js"></script>
+
+<style>
+html,body,#image,#gradient {height: 100%;width: 100%;}#image,#gradient {position: fixed;top: 0;}body {margin: 0;opacity: 0;transition: opacity 700ms;}body[shown] {opacity: 1;}
+#yiyan{border-bottom: solid 2px white;border-top: solid 2px white;line-height: 28px;margin: 0 25% 45px;padding: 13px 0;}</style>
+</head><body onclick="reload()"><script>
+let loadTime;
+function sendLoadTime(time) {window.parent.postMessage({frameType: 'background-image',messageType: 'loaded',url: location.href,time: time,},);
+}
+function onImageLoad() {document.body.toggleAttribute('shown', true);loadTime = Date.now();sendLoadTime(loadTime);}
+window.addEventListener('message', ({data}) => {if (data === 'sendLoadTime' && loadTime) {sendLoadTime(loadTime);}});</script>
+
+<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" onload="onImageLoad()" hidden id="backimage"></img>
+<div id="image" style></div>
+<div id="gradient"><center>
+<h1 id="time"></h1>
+<div id="yiyan" >
+<h1 id="yiyantxt">加载中...</h1>
+<h3 id="yiyanfrom">Loading...</h3>
+</center></div>
+<div class="infomation"> 
+<a href="https://space.bilibili.com/500827421/dynamic" target="_blank">By YSH</a>丨
+<a href="/code/pinbao.txt" target="_blank">查看源码</a>丨
+<a href="//rthe.cn" target="_blank">本页由热铁盒虚拟主机托管</a>丨
+<a href="//api.ixiaowai.cn/" target="_blank">背景API由小歪提供</a>
+</div>
+</div>
+
+
+<style>#image {background-image: url(https://api.ixiaowai.cn/gqapi/gqapi.php);background-position: center center;background-repeat: no-repeat no-repeat;background-size: cover;}</style>
+<style>
+#yiyantxt{color:white;text-shadow: 0em 0px 20px rgb(0, 0, 0);padding-top:10px}
+#yiyanfrom{color:white;text-shadow: 0em 0px 20px rgb(0, 0, 0);padding-top:10px;}
+#time{color:white;text-shadow: 0em 0px 20px rgb(0, 0, 0);padding-top:50px;font-size:50px;}
+html{cursor:default}
+.infomation{position:absolute;bottom:2px;text-align:center;text-shadow: 0em 0px 20px rgb(0, 0, 0);color:white;padding-left:5px;font-size:10px}
+.infomation a{color:white;text-decoration:none}
+</style>
+
+<script>function load(){
+$.get('https://v1.hitokoto.cn/?c=i&max_length=16',{},function(response){
+$('#yiyantxt').html(response.hitokoto);
+$('#yiyanfrom').html("——" + response.from);
+$("#backimage").attr("src","https://api.ixiaowai.cn/gqapi/gqapi.php");
+$("#image").attr("style","background-image: url(https://api.ixiaowai.cn/gqapi/gqapi.php?" + Math.round(Math.random()*10) + ")");
+},'JSON');
+var t=setTimeout("load()", "20000")
+}
+window.onload=load()
+
+
+function reload(){
+$.get('https://v1.hitokoto.cn/?c=i&max_length=16',{},function(response){
+$('#yiyantxt').html(response.hitokoto);
+$('#yiyanfrom').html("——" + response.from);
+$("#image").attr("style","background-image: url(https://api.ixiaowai.cn/gqapi/gqapi.php?" + Math.round(Math.random()*10) + ")");
+},'JSON');}
+</script>
+
+<script>
+	function startTime(){
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m=checkTime(m);
+    s=checkTime(s);
+    document.getElementById('time').innerHTML=h+":"+m+":"+s;
+    t=setTimeout(function(){startTime()},500);
+}
+function checkTime(i){
+    if (i<10){
+        i="0" + i;
+    }
+    return i;
+}	window.onload=startTime()
+</script>
+<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+alert('本页不支持手机访问，请用电脑！')
+window.location = "/";
+}
+</script>
+</body></html>

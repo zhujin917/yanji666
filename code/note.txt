@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script src="/assets/ie.js"></script>
+<title>随手记-By YanShuHao</title>
+</head>
+<body>
+<center>
+<h1>随手记</h1>
+<div id="notice" onclick="alert('瞅啥瞅？‍(╯°口°)╯(┴—┴')">正在加载...</div>
+<div class="main">
+<textarea id="header" placeholder="标题" onchange="notice()"></textarea><br><textarea id="body" placeholder="内容" onchange="notice()"></textarea><br></div>
+<a href="javascript:read()"><button>朗读内容</button></a>
+<a href="javascript:message()"><button>弹出消息</button></a>
+<a href="javascript:roll()"><button>文字滚动</button></a>
+<a href="javascript:clear()"><button>清空记录</button></a>
+<audio src style="display:none" id="read" autoplay></audio>
+<br><br><br><br>
+<div class="about">
+<a href="https://space.bilibili.com/500827421/" target="_blank">By YSH</a>丨
+<a href="/code/note.txt" target="_blank" onclick="alert('原创页面，拿走源码别把作者名字擦掉~')">源码</a>丨
+<a href="https://host.retiehe.com/" target="_blank">由热铁盒虚拟主机托管</a>
+</div>
+</center>
+<div id="roll" style="height:0px">
+<marquee id="rollm"  style="height:0px" onclick="stoproll()">加载中...</marquee>
+</div>
+<style>
+h1{text-shadow: 0px 0px 10px white}
+.about{text-shadow: 0px 0px 10px white}
+body{padding-top:50px;background-image: url(https://shop.io.mi-img.com/app/shop/img?id=shop_762c866c2044b0f37e10bd2e7e463613.png);;background-position:center;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;}
+.main{padding-top:15px}
+#header{background-color:#9ce4ff;outline:none;border-radius:5px;padding:5px;margin:5px;width:90%;border: 2px solid #1b556e;transition:all .6s;resize: none;font-size:20px;height:40px;overflow-y: hidden;overflow-x: hidden;opacity:0.7;}
+#header:hover{border: 2px solid #32a1ce;}
+#header:focus{border: 2px solid #32a1ce;background:white}
+#body{background-color:#ebd2c7;outline:none;border-radius:5px;padding:5px;margin:5px;min-width:90%; max-width:90%;border: 2px solid #8d4e34;transition:all .6s;font-size:20px;height:200px;opacity:0.7;}
+#body:hover{border: 2px solid #d7a490;}
+#body:focus{border: 2px solid #d7a490;background:white}
+button{background-color:#9fd4a5;outline:none;border-radius:5px;padding:5px;margin:5px;border: 2px solid #397e40;transition:all .6s;width:auto;opacity:0.7;}
+button:hover{border: 2px solid #469c4f;}
+button:active{border: 2px solid #469c4f;background:white}
+#notice{color:grey;font-size:10px}
+#roll{background:black;color:white;position:fixed;font-size:200px;height:100%;top:0;left:0;vertical-align:middle;}
+a{color:black;transition:all .6s;text-decoration:none}
+a:active{color:blue}
+</style><!--定时保存--><script>
+var timer = window.setTimeout("save()",1);
+function save(){
+var header = document.getElementById("header").value;
+localStorage.setItem("header", header);
+var body = document.getElementById("body").value;
+localStorage.setItem("body", body);
+document.getElementById("notice").innerHTML="随手记已保存";
+var timer = window.setTimeout("save()",500);}
+</script><!--提示和功能--><script>
+function notice(){document.getElementById("notice").innerHTML="请稍后...";}
+function clear(){$("#body").val("");$("#header").val("");}
+function read(){var body=localStorage.getItem("body");;if(body.length<1){alert("你没有输入文字！");return false};$("#read").attr("src","https://tts.baidu.com/text2audio?cuid=baike&lan=ZH&ctp=1&pdt=301&vol=3&rate=32&per=4100&tex=" + body)}
+function message(){var body=localStorage.getItem("body");;if(body.length<1){alert("你没有输入文字！");return false}alert(body)}
+function roll(){var body=localStorage.getItem("body");if(body.length<1){alert("你没有输入文字！");return false}document.getElementById("rollm").innerHTML=body;$("#roll").attr("style","");$("#rollm").attr("style","")}
+function stoproll(){$("#roll").attr("style","height:0px");$("#rollm").attr("style","height:0px")}
+</script><!--加载本地便签--><script>
+function load(){
+var header=localStorage.getItem("header");
+if(header== "null"){}else{document.getElementById("header").innerHTML=header;}
+var body=localStorage.getItem("body");
+if(body== "null"){}else{document.getElementById("body").innerHTML=body;}
+}
+window.onload=load()
+</script></body></html>

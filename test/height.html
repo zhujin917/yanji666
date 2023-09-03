@@ -1,0 +1,13 @@
+<title>身高计算器</title>
+<h1>身高计算器！</h1><script src="/assets/ie.js"></script>
+
+请输入你的身高：
+<input type="number" id="h" style="width:50px;outline:none;border:0px"/>厘米
+<button onclick="go()">计算！</button>
+<script>
+function go(){
+var height= document.getElementById("h").value
+document.write("<h1>计算完成！</h1><p>您的身高是：" + height + "cm</p>")
+document.title="身高计算器-计算完成！"
+}
+</script>

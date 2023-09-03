@@ -1,0 +1,69 @@
+<title>盒子生成器</title>
+<center>
+<h1>盒子生成器(雾)</h1>
+<h2>
+<div id="hezi" onclick="hezi()">
+</div></h2><p></p>
+<a href="https://space.bilibili.com/500827421/" target="_blank">By YSH</a>丨
+<a href="/code/tiehe.txt" target="_blank">源码</a>丨
+<a href="https://host.retiehe.com/" target="_blank">由热铁盒虚拟主机托管</a>
+</center>
+<style>
+#hezi{background:#0066cc;color:white;padding:30px;border-radius:10px;display:inline-block;transition:all .6s}
+#hezi:hover{background:black;color:white}
+a{color:black;text-decoration:none;transition:all .6s}
+a:hover{color:blue}
+body{padding-top:50px}
+</style>
+<script>
+function hezi(){
+var word1id = Math.floor(Math.random()*19+1);
+if (word1id == 1){var word1 = "热"}
+if (word1id == 2){var word1 = "冷"}
+if (word1id == 3){var word1 = "冰"}
+if (word1id == 4){var word1 = "烫"}
+if (word1id == 5){var word1 = "小"}
+if (word1id == 6){var word1 = "大"}
+if (word1id == 7){var word1 = "傻"}
+if (word1id == 8){var word1 = "白"}
+if (word1id == 9){var word1 = "黑"}
+if (word1id == 10){var word1 = "绿"}
+if (word1id == 11){var word1 = "红"}
+if (word1id == 12){var word1 = "黄"}
+if (word1id == 13){var word1 = "真"}
+if (word1id == 14){var word1 = "假"}
+if (word1id == 15){var word1 = "高"}
+if (word1id == 16){var word1 = "低"}
+if (word1id == 17){var word1 = "火"}
+if (word1id == 18){var word1 = "淦"}
+if (word1id == 19){var word1 = "水"}
+//___________________________________
+var word2id = Math.floor(Math.random()*23+1);
+if (word2id == 1){var word2 = "氢"}
+if (word2id == 2){var word2 = "氦"}
+if (word2id == 3){var word2 = "锂"}
+if (word2id == 4){var word2 = "铍"}
+if (word2id == 5){var word2 = "硼"}
+if (word2id == 6){var word2 = "碳"}
+if (word2id == 7){var word2 = "氮"}
+if (word2id == 8){var word2 = "氧"}
+if (word2id == 9){var word2 = "氟"}
+if (word2id == 10){var word2 = "氖"}
+if (word2id == 11){var word2 = "钠"}
+if (word2id == 12){var word2 = "镁"}
+if (word2id == 13){var word2 = "铝"}
+if (word2id == 14){var word2 = "硅"}
+if (word2id == 15){var word2 = "磷"}
+if (word2id == 16){var word2 = "硫"}
+if (word2id == 17){var word2 = "氯"}
+if (word2id == 18){var word2 = "氩"}
+if (word2id == 19){var word2 = "钾"}
+if (word2id == 20){var word2 = "钙"}
+if (word2id == 21){var word2 = "钪"}
+if (word2id == 22){var word2 = "钛"}
+if (word2id == 23){var word2 = "铁"}
+//___________________________________
+document.getElementById('hezi').innerHTML=word1 + word2 + "盒";
+}
+window.onload=hezi()
+</script>

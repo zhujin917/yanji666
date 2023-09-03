@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>开方计算器-By YSH</title>
+</head>
+<script src="/assets/ie.js"></script>
+<body>
+<script>
+function cul(){
+var num=document.getElementById("num").value;
+var cishu=document.getElementById("cishu").value;
+if (num.length<1){alert("你算了个寂寞！");return false}
+if (num<0){alert("你来给我算一个负的试试？！");return false}
+if (cishu.length<1){alert("你算了个寂寞！");return false}
+var jieguo = Math.round(Math.pow(num, 1/ + cishu))
+alert("计算结果：" + jieguo + "\n（计算结果经四舍五入取整，仅供参考）")
+}
+</script>
+<center>
+<h1>开方计算器</h1>
+<div class="shuru"><h1>
+<input type="tel" id="cishu" value="23"></input>√<input type="tel" id="num" value="916748676920039158098660927585380162483106680144308622407126516427934657040867096593279205767480806790022783016354924852380335745316935111903596577547340075681688305620821016129132845564805780158806771"></input>
+</h1></div>
+<div onclick="cul()" class="cul">
+算它！
+</div>
+</center>
+<style>
+.shuru{width:300px;padding:5px;border-radius:3px;background:#cfcfcf}
+.cul{width:300px;padding:5px;border-radius:3px;background:#005cb8;margin-top:10px;color:white}
+.cul:active{background:#004b95}
+input{border:0px;outline:none;background:rgba(0,0,0,0);height:42px}
+#cishu{width:15px;font-size:5px;position:fixed;top:95px;padding-right:10px}
+#num{width:170px;font-size:1em;}
+</style>
+</body>
