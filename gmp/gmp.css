@@ -1,0 +1,38 @@
+body{margin-top:60px;margin-bottom:80px}
+
+footer{text-align:left;color:black;padding:5px;--progressBackgroundColor:#b7dfff;}
+.gmp-progress{margin:0;width:100%;background:var(--progressBackgroundColor);display:inline-block;vertical-align:middle;-webkit-appearance:none;height:10px;outline:none;border-radius:5px;padding:0;position:relative;}
+.gmp-progress:hover{opacity:.8}
+.gmp-progress::-webkit-slider-thumb{opacity:0;}
+.gmp-control-bottom{padding:10px;text-align:center;width:100%;}
+.gmp-control-top{margin-top:-5px;}
+.gmp-music-name{font-size:1.2em;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#time-now,#time-total{opacity:.6;font-size:.9em;padding-left:5px;padding-right:5px;}
+#time-now{float:left}
+#time-total{float:right}
+.control-btn{width:40px;height:40px;display:inline-block;vertical-align:middle;margin:-5px;}
+.control-btn-small{width:25px;height:25px;display:inline-block;vertical-align:middle;}
+.control-btn:hover,.control-btn-small:hover{opacity:.8}
+.control-btn:active,.control-btn-small:active{opacity:.5}
+.gmp-line{display:inline-block;vertical-align:middle;height:30px;border-left:1px solid rgba(0,0,0,.1);}
+
+#playList{text-align:center;}
+.gmp-list{border-left:0px solid #1e9fff;transition:all .2s;width:100%;max-width:500px;text-align:left;display:inline-block;padding:5px;border-top:1px solid rgba(0,0,0,.2)}
+.gmp-list svg{display:inline-block;vertical-align:middle;width:30px;height:30px;}
+.gmp-list:hover{opacity:.8;}
+.gmp-list:active{background:rgba(255,255,255,.4)}
+.gmp-list .playingIcon{display:none;}
+.gmp-list.playing .notPlayingIcon{display:none;}
+.gmp-list.playing .playingIcon{display:inline-block;}
+.gmp-list.playing{margin-right:-2px;margin-left:-2px;border-left:4px solid #1e9fff;background:rgba(255,255,255,.4);padding:10px;}
+.gmp-list:nth-child(1){border-top:none;}
+
+::-webkit-scrollbar{display:none;}
+
+.dark{color:rgb(230,230,230);}
+.dark footer{--progressBackgroundColor:#003866;}
+.dark #playList svg,.dark .gmp-control-bottom svg{filter:invert(.9)}
+.dark .gmp-line{border-left:1px solid rgba(255,255,255,.3);}
+.dark .gmp-list:active{background:rgba(255,255,255,.1)}
+.dark .gmp-list.playing{background:rgba(255,255,255,.1);}
+.dark #gmp-progress{filter:brightness(0.8);}
